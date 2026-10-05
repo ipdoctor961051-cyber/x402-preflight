@@ -4,11 +4,11 @@ A machine-payable API that audits whether a public HTTPS endpoint exposes a vali
 
 ## Live service
 
-- Endpoint: `POST https://x402-preflight-seller.ipdoctor961051.workers.dev/v1/audit`
+- Endpoint: `POST https://x402-preflight-mainnet.ipdoctor961051.workers.dev/v1/audit`
 - Protocol: x402 v2
-- Network: Base Sepolia
+- Network: Base Mainnet
 - Asset: USDC
-- Price: 0.001 USDC per successful audit
+- Price: 0.01 USDC per successful audit
 - Health: `GET /health`
 - Machine discovery: `GET /.well-known/x402`
 - OpenAPI: `GET /openapi.json`
@@ -32,7 +32,7 @@ Invalid or private/local targets are rejected before payment.
 
 ```bash
 curl -i -X POST \
-  https://x402-preflight-seller.ipdoctor961051.workers.dev/v1/audit \
+  https://x402-preflight-mainnet.ipdoctor961051.workers.dev/v1/audit \
   -H 'content-type: application/json' \
   -d '{"url":"https://x402.quicknode.com/base-sepolia","method":"POST","headers":{"content-type":"application/json"},"body":{"jsonrpc":"2.0","id":1,"method":"eth_blockNumber","params":[]}}'
 ```
@@ -49,4 +49,4 @@ This repository mirrors the live machine-readable metadata so crawlers and agent
 
 ## Status
 
-Experimental seller running on Base Sepolia. The public service is suitable for protocol integration and discovery testing.
+Live seller running on Base Mainnet. Payments settle in Circle USDC through a gas-sponsored x402 facilitator.
